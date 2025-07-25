@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NPC INTERVIEW FORM [FORM_13]</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+      text-align: center;
+      transition: background 1s;
+    }
+
+    #question {
+      font-size: 1.5em;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background: transparent;
+      color: #0f0;
+      border: 2px solid #0f0;
+      padding: 10px 30px;
+      margin: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: #0f0;
+      color: #000;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="question">Are you ready to begin?</div>
+  <div id="buttons">
+    <button class="btn" onclick="answer('yes')">YES</button>
+    <button class="btn" onclick="answer('no')">NO</button>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        text: "Are you ready to begin?",
+        yes: 1,
+        no: 4
+      },
+      {
+        text: "Have you ever stood still for hours?",
+        yes: 2,
+        no: 3
+      },
+      {
+        text: "Will you obey without question?",
+        yes: 5,
+        no: 6
+      },
+      {
+        text: "Then why did you apply?",
+        yes: 5,
+        no: 6
+      },
+      {
+        text: "Why are you here then?",
+        yes: 1,
+        no: 7
+      },
+      {
+        text: "You have been accepted. Please wait.",
+        yes: null,
+        no: null
+      },
+      {
+        text: "You will not be accepted. Please leave.",
+        yes: null,
+        no: null
+      },
+      {
+        text: "There is someone behind you. Should we let them speak?",
+        yes: 5,
+        no: 6
+      }
+    ];
+
+    let current = 0;
+
+    function answer(choice) {
+      const nextIndex = questions[current][choice];
+
+      if (nextIndex === null) {
+        document.getElementById('question').innerText = questions[current].text;
+        document.getElementById('buttons').classList.add('hidden');
+        return;
+      }
+
+      current = nextIndex;
+      document.getElementById('question').innerText = questions[current].text;
+    }
+  </script>
+</body>
+</html>
