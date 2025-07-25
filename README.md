@@ -1,2 +1,3 @@
 # WeanoWeb
-Weano Webstle
+
+idk bruh, sum funny web i guess idk
